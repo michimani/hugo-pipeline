@@ -1,0 +1,11 @@
+common:
+  hugo_version: 0.62.0
+  region: <deploy-target-region>
+
+route53:
+  zone_name: <existed-hosted-zone-name>
+  zone_id: <existed-hosted-zone-id>
+  subdomain_host: <hostname-of-sub-domain (optional)>
+
+codepipeline:
+  branch: master

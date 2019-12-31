@@ -1,0 +1,16 @@
+version: "0.2"
+
+phases:
+  install:
+    commands:
+      - curl -Ls https://github.com/gohugoio/hugo/releases/download/v##HUGO_VERSION##/hugo_##HUGO_VERSION##_Linux-64bit.tar.gz -o /tmp/hugo.tar.gz
+      - tar xf /tmp/hugo.tar.gz -C /tmp
+      - mv /tmp/hugo /usr/bin/hugo
+      - rm -rf /tmp/hugo*
+  build:
+    commands:
+      - hugo
+      - sed -i -e "s/<description>&lt;/<description></g" public/index.xml
+  post_build:
+    commands:
+      - aws s3 sync "public/" "s3://##BUCKET_NAME##" --delete --metadata-directive "REPLACE" --cache-control "max-age=3600"
