@@ -104,6 +104,6 @@ export class HugoPiplineStack extends cdk.Stack {
     // output: CodeCommit repositry URL
     const codecommitInfo = `Please run following AWS CLI command to get generated CodeCommit repositry info.\n\n
     \taws codecommit get-repository --repository-name ${repoName} --region ${stackConfig.common.region}\n`;
-    console.info(codecommitInfo);
+    fs.writeFileSync('./cdk.out/codecommit_info.txt', codecommitInfo);
   }
 }

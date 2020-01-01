@@ -52,18 +52,18 @@ You can create build pipeline of HUGO site using this project.
 4. deploy
 
     ```console
-    $ cdk deploy
+    $ cdk deploy && cat ./cdk.out/codecommit_info.txt
+    ```
+    
+    Run AWS CLI command like following.
+    
+    ```
+    $ aws codecommit get-repository --repository-name <generated codecommit repo name> --region <specified region>
     ```
 
 5. add remote repository URL
 
-    Get generated repository info,
-  
-    ```
-    $ aws codecommit get-repository --repository-name <generated codecommit repo name> --region <specified region>
-    ```
-    
-    and repository URL to your HUGO project. (`git remote add`)
+    Add SSH or HTTP repository URL to your HUGO project. (`git remote add`)
 
 6. check
 
