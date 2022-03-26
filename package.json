@@ -32,7 +32,7 @@
     "@aws-cdk/core": "^1.139.0",
     "@types/js-yaml": "^4.0.5",
     "js-yaml": "^4.1.0",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "source-map-support": "^0.5.21"
   }
 }
